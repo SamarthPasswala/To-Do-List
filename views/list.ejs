@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: rgba(0, 153, 255, 0.63);
+        }
+
+        table {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            border: 2px solid black;
+            padding: 2px;
+            margin: 2px;
+        }
+
+        .link1 {
+            background-color: dodgerblue;
+        }
+
+        .link2 {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <h1>
+            Here's Your Today's List..
+        </h1>
+
+        <table border width="50%" cellpadding="5" cellspacing="0">
+            <tr>
+                <th>srNo</th>
+                <th>Task's</th>
+                <th>Action</th>
+            </tr>
+
+            <%list.map((val)=>{ %>
+                <tr>
+                    <td>
+                        <%= val.srNo %>
+                    </td>
+                    <td>
+                        <%= val.task %>
+                    </td>
+                    <td>
+                        <a href="/editList?srNo=<%= val.srNo%>" class="link1">Edit</a>
+                        <a href="/deleteList?srNo=<%= val.srNo%>" class="link2">Delete</a>
+                    </td>
+                </tr>
+                <% })%>
+        </table>
+
+        <h2>Add To Your List</h2>
+
+        <form action="/insertList" method="post">
+            <table border cellpadding="5" cellspacing="0">
+                <tr>
+                    <th>srNo : </th>
+                    <td><input type="number" name="taskId"></td>
+                </tr>
+                <tr>
+                    <th>Task : </th>
+                    <td><input type="text" name="task"></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><input type="submit" value="Add"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+
+</body>
+
+</html>

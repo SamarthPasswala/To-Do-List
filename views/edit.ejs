@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: rgba(255, 255, 0, 0.63);
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h2>Edit Your List</h2>
+
+        <form action="/editList" method="post">
+            <table border cellpadding="5" cellspacing="0">
+                <tr>
+                    <th>srNo : </th>
+                    <td>
+                        <input type="number" name="taskId" value="<%= data.srNo  %>" disabled>
+                        <input type="hidden" name="editId" value="<%= data.srNo %>">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Task : </th>
+                    <td><input type="text" name="task" value="<%= data.task%>"></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><input type="submit" value="Update"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>
